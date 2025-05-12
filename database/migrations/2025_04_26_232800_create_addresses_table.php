@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('zipcode');
-            $table->foreignUuid('person_id')->constrained(
+            $table->foreignUuid('person_id')->nullable()->constrained(
                 table: 'persons',
                 indexName: 'addresses_person_id_foreign'
-            )->cascadeOnDelete()->nullable();
-            $table->foreignUuid('branch_id')->constrained()->cascadeOnDelete()->nullable();
+            )->cascadeOnDelete();
+            $table->foreignUuid('branch_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

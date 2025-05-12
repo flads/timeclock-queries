@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('persons', function (Blueprint $table) {
             $table->uuid('id')->unique();
             $table->string('name');
+            $table->string('cpf', length: 11)->unique();
+            $table->string('rg', length: 9)->unique();
             $table->date('birthdate');
             $table->char('gender', 1);
-            $table->char('phone', 11);
+            $table->char('phone', 11)->unique();
             $table->string('email')->unique();
             $table->foreignUuid('branch_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

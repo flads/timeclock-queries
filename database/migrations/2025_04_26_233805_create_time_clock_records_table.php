@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('time_clock_records', function (Blueprint $table) {
             $table->uuid('id')->unique();
-            $table->dateTime('register');
+            $table->dateTime('time');
             $table->foreignUuid('person_id')->constrained(
                 table: 'persons',
                 indexName: 'addresses_person_id_foreign'

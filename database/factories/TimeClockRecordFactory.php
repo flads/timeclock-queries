@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Person;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class CompanyFactory extends Factory
+class TimeClockRecordFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +19,8 @@ class CompanyFactory extends Factory
     {
         return [
             'id' => fake()->uuid(),
-            'name' => fake()->company(),
-            'cnpj' => fake()->cnpj(false),
+            'time' => fake()->dateTimeBetween('-15 days', 'today'),
+            'person_id' => Person::factory(),
         ];
     }
 }
