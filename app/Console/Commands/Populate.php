@@ -32,19 +32,44 @@ class Populate extends Command
     {
         $this->info(now());
 
-        Company::factory()->count(10)
+        Company::factory()->count(1)
             ->has(
-                Branch::factory()->count(3)
+                Branch::factory()->count(2)
                     ->has(
                         Address::factory()
+                    )
+                    ->has(
+                        Person::factory()->count(1)
+                            ->has(
+                                Address::factory()
+                            )
+                            ->has(
+                                TimeClockRecord::factory()->count(2)
+                            ),
+                        'persons'
+                    )
+            )->create();
+
+        Company::factory()->count(1)
+            ->has(
+                Branch::factory()->count(2)
+                    ->has(
+                        Address::factory()
+                    )
+                    ->has(
+                        Person::factory()->count(1)
+                            ->has(
+                                Address::factory()
+                            )
+                            ->has(
+                                TimeClockRecord::factory()->count(2)
+                            ),
+                        'persons'
                     )
                     ->has(
                         Person::factory()->count(2)
                             ->has(
                                 Address::factory()
-                            )
-                            ->has(
-                                TimeClockRecord::factory()->count(20)
                             ),
                         'persons'
                     )
