@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Address;
 use App\Models\Branch;
 use App\Models\Company;
+use App\Models\Gender;
 use App\Models\Person;
 use App\Models\TimeClockRecord;
 use Illuminate\Console\Command;
@@ -74,6 +75,16 @@ class Populate extends Command
                         'persons'
                     )
             )->create();
+
+        Gender::factory()->create([
+            'gender' => 'M',
+            'description' => 'Male',
+        ]);
+
+        Gender::factory()->create([
+            'gender' => 'F',
+            'description' => 'Female',
+        ]);
 
         $this->info(now());
     }
