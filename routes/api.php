@@ -5,6 +5,7 @@ use App\Http\Controllers\GetInnerJoinController;
 use App\Http\Controllers\GetInnerJoinLateralController;
 use App\Http\Controllers\GetLeftJoinController;
 use App\Http\Controllers\GetRightJoinController;
+use App\Http\Controllers\GetSubqueryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/get-registers-count', [CommonController::class, 'getRegistersCount']);
@@ -12,3 +13,4 @@ Route::get('/get-inner-join', GetInnerJoinController::class);
 Route::get('/get-left-join', GetLeftJoinController::class);
 Route::get('/get-right-join', GetRightJoinController::class);
 Route::get('/get-inner-join-lateral', GetInnerJoinLateralController::class);
+Route::get('/get-subquery', GetSubqueryController::class);
