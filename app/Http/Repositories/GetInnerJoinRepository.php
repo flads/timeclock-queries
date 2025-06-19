@@ -12,12 +12,7 @@ class GetInnerJoinRepository
             SELECT
                 p.name,
                 concat(a.street, ', ' , a.number) AS address,
-                c.name AS company_name,
-                b.name AS branch_name,
-                (
-                    SELECT count(tcr.id) FROM time_clock_records tcr
-                    WHERE tcr.person_id = p.id
-                ) AS time_clock_count
+                c.name AS company_name
             FROM persons p
             INNER JOIN branches b ON b.id = p.branch_id
             INNER JOIN companies c ON c.id = b.company_id
